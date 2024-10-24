@@ -1,36 +1,36 @@
-% Конкатенация списков
+% Конкатенация списков (append)
 % (Список1, Список2, Результат)
 concat_lists([], L, L).
 concat_lists([Head|Tail], L2, [Head|Result]) :-
     concat_lists(Tail, L2, Result).
 
-% Удаление элемента из списка
+% Удаление элемента из списка (remove)
 % (Элемент, Список, Результат)
 delete_elem(Elem, [Elem|Tail], Tail).
 delete_elem(Elem, [Head|Tail], [Head|Result]) :-
     delete_elem(Elem, Tail, Result).
 
-% Перестановки списка
+% Перестановки списка (permute)
 % (Список, Перестановка)
 list_permutation([], []).
 list_permutation(L, [Elem|Perm]) :-
     delete_elem(Elem, L, Rest),
     list_permutation(Rest, Perm).
 
-% Подсписки списка
+% Подсписки списка (sublist)
 % (Подсписок, Список)
 sublist(Sub, List) :-
     concat_lists(_, Temp, List),
     concat_lists(Sub, _, Temp).
 
-% Длина списка
+% Длина списка (length)
 % (Список, Длина)
 list_length([], 0).
 list_length([_|Tail], Length) :-
     list_length(Tail, N),
     Length is N + 1.
 
-% Проверка наличия элемента в списке
+% Проверка наличия элемента в списке (member)
 % (Элемент, Список)
 contains(Element, [Element|_]).
 contains(Element, [_|Tail]) :-
@@ -62,3 +62,19 @@ is_arith_prog([A, B, C|Rest]) :-
 insert_end_arith_prog(Elem, List) :-
     insert_end(Elem, List, NewList),
     is_arith_prog(NewList).
+
+/*
+Примеры использования:
+
+?- insert_end_std(1, [], X).
+X = [1].
+
+?- insert_end_std(1, [2, 1, 2, 1, 2], X).
+X = [2, 1, 2, 1, 2, 1].
+
+?- is_arith_prog([1, 2, 3, 4, 5]).
+true.
+
+?- is_arith_prog([0, 10, 20, 30, 40, 50]).
+true.
+*/

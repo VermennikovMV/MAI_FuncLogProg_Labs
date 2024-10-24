@@ -126,3 +126,25 @@ failed_in_subject(Subject, Count) :-
 % Пример использования:
 % ?- failed_in_subject('Информатика', Count).
 % Count = 2.
+
+/*
+Примеры использования:
+
+?- average_grade('Логическое программирование', Avg).
+Avg = 4.357142857142857.
+
+?- average_grade('Математический анализ', Avg).
+Avg = 4.071428571428571.
+
+?- failed_in_group(101, Count).
+Count = 0.
+
+?- failed_in_group(102, Count).
+Count = 1.
+
+?- failed_in_subject('Логическое программирование', Count).
+Count = 3.
+
+?- failed_in_subject('Математический анализ', Count).
+Count = 1.
+*/
