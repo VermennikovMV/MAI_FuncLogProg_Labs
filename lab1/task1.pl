@@ -62,19 +62,3 @@ is_arith_prog([A, B, C|Rest]) :-
 insert_end_arith_prog(Elem, List) :-
     insert_end(Elem, List, NewList),
     is_arith_prog(NewList).
-
-/*
-Примеры использования:
-
-?- insert_end_std(1, [], X).
-X = [1].
-
-?- insert_end_std(1, [2, 1, 2, 1, 2], X).
-X = [2, 1, 2, 1, 2, 1].
-
-?- is_arith_prog([1, 2, 3, 4, 5]).
-true.
-
-?- is_arith_prog([0, 10, 20, 30, 40, 50]).
-true.
-*/
